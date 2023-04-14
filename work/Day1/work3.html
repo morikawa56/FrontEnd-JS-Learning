@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .outer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inner .title{
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        table {
+            height: 80px;
+            text-align: center;
+        }
+
+        table th,
+        table td {
+            padding: 5px 20px;
+        }
+
+        table,
+        table th,
+        table td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="title">2020年12月消费支出</div>
+        </div>
+    </div>
+    <script>
+        let holderTotal = Number(prompt('请输入银行卡总额：'))
+        let waterCost = Number(prompt('请输入水费：'))
+        let elecCost = Number(prompt('请输入电费：'))
+        let netCost = Number(prompt('请输入网费：'))
+        let holderLeft = holderTotal - waterCost - elecCost - netCost
+        document.write(`
+        <table>
+                <tr>
+                    <th>银行卡总额</th>
+                    <th>水费</th>
+                    <th>电费</th>
+                    <th>网费</th>
+                    <th>银行卡余额</th>
+                </tr>
+                <tr>
+                    <td>${holderTotal}</td>
+                    <td>${waterCost}</td>
+                    <td>${elecCost}</td>
+                    <td>${netCost}</td>
+                    <td>${holderLeft}</td>
+                </tr>
+            </table>
+        `)
+    </script>
+</body>
+</html>

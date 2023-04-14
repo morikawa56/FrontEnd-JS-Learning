@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(../images/desktop_1.jpg) no-repeat top center / cover;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // console.log(document.body)\
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (Math.floor(Math.max(M, N)) - Math.ceil(Math.min(M, N)) + 1)) + Math.ceil(Math.min(M, N))
+        }
+        const random = getRandom(1, 10)
+        console.log(random)
+        document.body.style.backgroundImage = `url(../images/desktop_${random}.jpg)`
+    </script>
+</body>
+</html>

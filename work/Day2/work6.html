@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let score = +prompt('请输入分数')
+        let rank
+        if(score >= 90)
+        {
+            rank = 'A'
+        }
+        else if(score >= 80)
+        {
+            rank = 'B'
+        }
+        else if(score >= 70)
+        {
+            rank = 'C'
+        }
+        else if(score >= 60)
+        {
+            rank = 'D'
+        }
+        else
+        {
+            rank = 'E'
+        }
+        alert(`您的等级是${rank}`)
+    </script>
+</body>
+</html>

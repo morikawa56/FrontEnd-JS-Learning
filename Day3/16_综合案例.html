@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 800px;
+            display: flex;
+            margin: 0 auto;
+            border-bottom:1px solid #888;
+            border-left:1px solid #888;
+            justify-content: space-around;
+            align-items: flex-end;
+            text-align: center;
+        }
+
+        .box .box1,
+        .box .box2,
+        .box .box3,
+        .box .box4 {
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: pink;
+        }
+
+        span {
+            margin: 0 auto;
+            margin-top: -20px;
+        }
+
+        .box div h4{
+            width: 70px;
+            margin-bottom: -35px;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let arr = []
+        for(let i = 1; i <= 4; i++)
+        {
+            arr[i - 1] = +prompt(`请输入第${i}季度的数据：`)
+        }
+        document.write(`<div class="box">`)
+        for(let i = 1; i <= 4; i++)
+        {
+            document.write(`
+            <div class="box${i}">
+            <span class="inner" style="height: ${arr[i - 1]}px;">${arr[i - 1]}</span>
+            <h4>第${i}季度</h4>
+            </div>
+            `)
+        }
+        document.write(`</div>`)
+    </script>
+</body>
+</html>

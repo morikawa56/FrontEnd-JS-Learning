@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sign
+        let num1
+        let num2
+        let result
+        while(1)
+        {
+            sign = prompt(`
+            1.输入+ - * / 计算两个数字的结果
+            2.如果输入q则退出
+            `)
+            if(sign === '+')
+            {
+                num1 = +prompt('请输入第一个数字：')
+                num2 = +prompt('请输入第二个数字：')
+                result = num1 + num2
+                alert(`您计算的求和结果是：${result}`)
+            }
+            else if(sign === '-')
+            {
+                num1 = +prompt('请输入第一个数字：')
+                num2 = +prompt('请输入第二个数字：')
+                result = num1 - num2
+                alert(`您计算的求差结果是：${result}`)
+            }
+            else if(sign === '*')
+            {
+                num1 = +prompt('请输入第一个数字：')
+                num2 = +prompt('请输入第二个数字：')
+                result = num1 * num2
+                alert(`您计算的求积结果是：${result}`)
+            }
+            else if(sign === '/')
+            {
+                num1 = +prompt('请输入第一个数字：')
+                num2 = +prompt('请输入第二个数字：')
+                result = num1 / num2
+                alert(`您计算的求商结果是：${result}`)
+            }
+            else if(sign === 'q')
+            {
+                break
+            }
+            else
+            {
+                alert('请输入有效行为')
+            }
+        }
+    </script>
+</body>
+</html>
