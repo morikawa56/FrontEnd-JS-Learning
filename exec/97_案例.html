@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content {
+            width: 400px;
+            height: 500px;
+            background-color: rgb(148, 27, 27);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        #date {
+            font-size: 28px;
+            margin: 30px;
+        }
+        #title {
+            font-size: 55px;
+            margin: 30px;
+        }
+        .time {
+            font-size: 40px;
+            margin-top: 10px;
+            margin-bottom: 115px;
+        }
+        .time-now {
+            display: inline-block;
+            background-color: rgb(34, 34, 34);
+            padding: 5px;
+            margin: 0 10px;
+        }
+        .target {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="content">
+            <div id="date">今天是xxxx年x月xx日</div>
+            <div id="title">下班倒计时</div>
+            <div class="time">
+                <span class="time-now">hh</span>:<span class="time-now">mm</span>:<span class="time-now">ss</span>
+            </div>
+            <div class="target">
+                <span class="time-tgt">hh</span>:<span class="time-tgt">mm</span>:<span class="time-tgt">ss</span>下班
+            </div>
+        </div>
+    </div>
+    <script>
+        const page = document.querySelector('.page')
+        function detectScreen() {
+            // 获取窗口宽度
+            if (window.innerWidth)
+            var winWidth = window.innerWidth;
+            else if ((document.body) && (document.body.clientWidth))
+            var winWidth = document.body.clientWidth;
+            // 获取窗口高度
+            if (window.innerHeight)
+            var winHeight = window.innerHeight;
+            else if ((document.body) && (document.body.clientHeight))
+            var winHeight = document.body.clientHeight;
+            // 通过深入 Document 内部对 body 进行检测，获取窗口大小
+            if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+            {
+            var winHeight = document.documentElement.clientHeight;
+            var winWidth = document.documentElement.clientWidth;
+            }
+            page.style.height = winHeight + 'px'
+            page.style.width = winWidth + 'px'
+        }
+        detectScreen()
+        window.addEventListener('resize', detectScreen)
+
+        const dateNow = document.querySelector('#date')
+        const settime = prompt('请输入下班时间 h:m:s：')
+        let date = +new Date() 
+        const time = document.querySelector('.time')
+        const targettime = `${+new Date().getFullYear()}-${+new Date().getMonth() + 1}-${+new Date().getDate()} ` + settime
+        const target = +new Date(targettime)
+        const timeTgt = document.querySelector('.target')
+        function clock() {
+            dateNow.innerHTML = `今天是${+new Date().getFullYear()}年${+new Date().getMonth() + 1}月${+new Date().getDate()}日`
+            if(target - date > 0 && target - date < 28800000) {
+                date = +new Date()
+                let h = Math.floor((target - date) / 1000 / 60 / 60 % 24)
+                h = h < 10 ? '0' + h : h
+                let m = Math.floor((target - date) / 1000 / 60 % 60)
+                m = m < 10 ? '0' + m : m
+                let s = Math.floor((target - date) / 1000 % 60)
+                s = s < 10 ? '0' + s : s
+                time.innerHTML = `<span class="time-now">${h}</span>:<span class="time-now">${m}</span>:<span class="time-now">${s}</span>`
+            } else {
+                time.innerHTML = '已经下班辣~~'
+            }
+        }
+
+        timeTgt.innerHTML = settime + '下班'
+        clock()
+        setInterval(clock, 1000)
+    </script>
+</body>
+</html>
