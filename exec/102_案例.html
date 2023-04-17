@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = document.createElement('a')
+        a.href = 'http://www.baidu.com'
+        a.innerHTML = `支付结束后将于5秒后返回首页`
+        document.body.appendChild(a)
+        let i = 4
+        let timerId = setInterval(function() {
+            document.body.innerHTML = ''
+            a.innerHTML = `支付结束后将于${i}秒后返回首页`
+            document.body.appendChild(a)
+            if(i === 0) {
+                clearInterval(timerId)
+                location.href = 'http://www.baidu.com'
+            }
+            i--
+        }, 1000)
+    </script>
+</body>
+</html>
