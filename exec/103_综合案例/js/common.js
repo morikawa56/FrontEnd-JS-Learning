@@ -52,7 +52,7 @@ function render() {
     if(arr.length) {
     for(let i = 0; i< arr.length; i++) {
     const tr = document.createElement('tr')
-    
+
     tr.innerHTML = `
         <td>${arr[i].stuId}</td>
         <td>${arr[i].uname}</td>
