@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实例成员和静态成员
+        // 1.实例成员：实例对象上的属性和方法属于实例成员
+        // function Pig(name) {
+        //     this.name = name
+        // }
+        // const peiqi = new Pig('佩奇')
+        // const qiaozhi = new Pig('乔治')
+        // peiqi.name = '小猪佩奇' //实例属性
+        // peiqi.sayHi = () => {
+        //     console.log('Hi~~')
+        // }
+        // console.log(peiqi)
+        // console.log(qiaozhi)
+        // console.log(peiqi === qiaozhi)
+
+        // 2.静态成员
+        function Pig(name) {
+            this.name = name
+        }
+        Pig.eyes = 2 // 静态属性
+        Pig.sayHi = function () {
+            console.log(this)
+        }
+        Pig.sayHi()
+        console.log(Pig.eyes)
+
+    </script>
+</body>
+</html>

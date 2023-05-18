@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const arr = ['red','blue','green']
+        // const re = arr.find(function(item){
+        //     return item === 'blue'
+        // })
+        // console.log(re)
+
+        const arr = [
+            {
+                name: '小米',
+                price: 1999
+            },
+            {
+                name: '华为',
+                price: 3999
+            }
+        ]
+        // 1.find查找
+        // const mi = arr.find(item => item.name === '小米')
+        // console.log(mi)
+        // 2.every 每一个是否都符合条件，是就true 不是就false
+        const arr1 = [10, 20, 30]
+        const flag = arr1.every(item => item >= 20)
+        console.log(flag)
+    </script>
+</body>
+</html>
